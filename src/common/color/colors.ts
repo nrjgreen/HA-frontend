@@ -1,7 +1,7 @@
 import { theme2hex } from "./convert-color";
 
 export const COLORS = [
-  "#44739e",
+  "#45BDCF",
   "#984ea3",
   "#00d2d5",
   "#ff7f00",

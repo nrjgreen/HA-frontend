@@ -274,8 +274,8 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
       iconColorCSS,
       css`
         ha-card {
-          --state-inactive-color: var(--paper-item-icon-color, #44739e);
-          --state-color: var(--paper-item-icon-color, #44739e);
+          --state-inactive-color: var(--paper-item-icon-color, #45BDCF);
+          --state-color: var(--paper-item-icon-color, #45BDCF);
           --ha-ripple-color: var(--state-color);
           --ha-ripple-hover-opacity: 0.04;
           --ha-ripple-pressed-opacity: 0.12;
@@ -319,10 +319,10 @@ export class HuiButtonCard extends LitElement implements LovelaceCard {
         ha-card:focus-visible {
           --shadow-default: var(--ha-card-box-shadow, 0 0 0 0 transparent);
           --shadow-focus: 0 0 0 1px
-            var(--state-color, var(--paper-item-icon-color, #44739e));
+            var(--state-color, var(--paper-item-icon-color, #45BDCF));
           border-color: var(
             --state-color,
-            var(--paper-item-icon-color, #44739e)
+            var(--paper-item-icon-color, #45BDCF)
           );
           box-shadow: var(--shadow-default), var(--shadow-focus);
         }

@@ -93,13 +93,13 @@ class HassioAddonDashboard extends LitElement {
       },
     ];
 
-    if (this.addon.documentation) {
-      addonTabs.push({
-        translationKey: "addon.panel.documentation",
-        path: `/hassio/addon/${this.addon.slug}/documentation`,
-        iconPath: mdiFileDocument,
-      });
-    }
+    // if (this.addon.documentation) {
+    //   addonTabs.push({
+    //     translationKey: "addon.panel.documentation",
+    //     path: `/hassio/addon/${this.addon.slug}/documentation`,
+    //     iconPath: mdiFileDocument,
+    //   });
+    // }
 
     if (this.addon.version) {
       addonTabs.push(

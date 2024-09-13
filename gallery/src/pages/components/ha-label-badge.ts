@@ -3,7 +3,7 @@ import { customElement } from "lit/decorators";
 import "../../../../src/components/ha-label-badge";
 import "../../../../src/components/ha-card";
 
-const colors = ["#03a9f4", "#ffa600", "#43a047"];
+const colors = ["#45BDCF", "#ffa600", "#43a047"];
 
 const badges: {
   label?: string;

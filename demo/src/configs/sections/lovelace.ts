@@ -2,7 +2,7 @@ import { isFrontpageEmbed } from "../../util/is_frontpage";
 import { DemoConfig } from "../types";
 
 export const demoLovelaceSections: DemoConfig["lovelace"] = (localize) => ({
-  title: "Home Assistant Demo",
+  title: "NRJHub Demo",
   views: [
     {
       type: "sections",

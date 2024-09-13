@@ -800,18 +800,6 @@ class HaAutomationPicker extends SubscribeMixin(LitElement) {
                     { user: this.hass.user?.name || "Alice" }
                   )}
                 </p>
-                <a
-                  href=${documentationUrl(
-                    this.hass,
-                    "/docs/automation/editor/"
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <ha-button>
-                    ${this.hass.localize("ui.panel.config.common.learn_more")}
-                  </ha-button>
-                </a>
               </div>`
             : nothing
         }

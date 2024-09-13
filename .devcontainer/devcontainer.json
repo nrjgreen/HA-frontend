@@ -1,5 +1,5 @@
 {
-  "name": "Home Assistant Frontend",
+  "name": "NRJHub Frontend",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."

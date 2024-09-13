@@ -83,7 +83,7 @@ export class HaTTSPicker extends LitElement {
               ${this.hass!.localize("ui.components.tts-picker.none")}
             </ha-list-item>`
           : nothing}
-        ${this._engines.map((engine) => {
+        ${this._engines.filter((engine) => engine.engine_id !== "Cloud").map((engine) => {
           if (engine.deprecated && engine.engine_id !== value) {
             return nothing;
           }
@@ -94,6 +94,7 @@ export class HaTTSPicker extends LitElement {
           } else {
             label = engine.name || engine.engine_id;
           }
+          console.log("Engine: " + engine.engine_id);
           return html`<ha-list-item
             .value=${engine.engine_id}
             .disabled=${engine.supported_languages?.length === 0}

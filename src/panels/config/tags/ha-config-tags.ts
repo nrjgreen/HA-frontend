@@ -237,15 +237,6 @@ export class HaConfigTags extends SubscribeMixin(LitElement) {
             >`,
           })}
         </p>
-        <p>
-          <a
-            href=${documentationUrl(this.hass, "/integrations/tag/")}
-            target="_blank"
-            rel="noreferrer"
-          >
-            ${this.hass.localize("ui.panel.config.tag.learn_more")}
-          </a>
-        </p>
       `,
     });
   }

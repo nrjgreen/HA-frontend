@@ -15,7 +15,7 @@ export class HuiConfiguratorNotificationItem extends LitElement {
   public notification?: PersitentNotificationEntity;
 
   protected render() {
-    if (!this.hass || !this.notification) {
+    if (!this.hass || !this.notification || domainToName(this.hass.localize, "configurator") == "Invalid config") {
       return nothing;
     }
 

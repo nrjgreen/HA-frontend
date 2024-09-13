@@ -159,7 +159,7 @@ function checkOrCondition(condition: OrCondition, hass: HomeAssistant) {
 /**
  * Return the result of applying conditions
  * @param conditions conditions to apply
- * @param hass Home Assistant object
+ * @param hass NRJHub object
  * @returns true if conditions are respected
  */
 export function checkConditionsMet(

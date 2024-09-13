@@ -140,7 +140,7 @@ const createWebpackConfig = ({
               : require.resolve(resource);
           } catch (err) {
             console.error(
-              "Error in Home Assistant ignore plugin",
+              "Error in NRJHub ignore plugin",
               resource,
               context
             );

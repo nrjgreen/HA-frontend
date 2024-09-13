@@ -142,12 +142,6 @@ class HaOnboarding extends litLocalizeLiteMixin(HassElement) {
           nativeName
           @value-changed=${this._languageChanged}
         ></ha-language-picker>
-        <a
-          href="https://www.home-assistant.io/getting-started/onboarding/"
-          target="_blank"
-          rel="noreferrer noopener"
-          >${this.localize("ui.panel.page-onboarding.help")}</a
-        >
       </div>`;
   }
 
@@ -266,8 +260,8 @@ class HaOnboarding extends litLocalizeLiteMixin(HassElement) {
     try {
       const response = await fetchInstallationType();
       this._supervisor = [
-        "Home Assistant OS",
-        "Home Assistant Supervised",
+        "NRJHub OS",
+        "NRJHub Supervised",
       ].includes(response.installation_type);
       if (this._supervisor) {
         // Only load if we have supervisor

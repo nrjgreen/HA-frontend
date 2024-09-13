@@ -65,14 +65,6 @@ export class EnergyWaterSettings extends LitElement {
         <div class="card-content">
           <p>
             ${this.hass.localize("ui.panel.config.energy.water.sub")}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href=${documentationUrl(this.hass, "/docs/energy/water/")}
-              >${this.hass.localize(
-                "ui.panel.config.energy.water.learn_more"
-              )}</a
-            >
           </p>
           ${waterValidation.map(
             (result) => html`

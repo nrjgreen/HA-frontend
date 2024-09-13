@@ -93,7 +93,7 @@ class HaPanelDevAssist extends SubscribeMixin(LitElement) {
   private async _fetchLanguages() {
     const { agents } = await listAgents(this.hass);
     const assistAgent = agents.find(
-      (agent) => agent.id === "conversation.home_assistant"
+      (agent) => agent.id === "conversation.nrjhub"
     );
     this.supportedLanguages =
       assistAgent?.supported_languages === "*"

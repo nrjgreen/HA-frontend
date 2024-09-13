@@ -1,4 +1,4 @@
-"""Frontend for Home Assistant."""
+"""Frontend for NRJHub."""
 from pathlib import Path
 
 

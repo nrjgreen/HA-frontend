@@ -8,7 +8,7 @@ import {
 
 const mainStyles = css`
   /*
-    Home Assistant default styles.
+    NRJHub default styles.
 
     In Polymer 2.0, default styles should to be set on the html selector.
     (Setting all default styles only on body breaks shadyCSS polyfill.)
@@ -58,7 +58,7 @@ const mainStyles = css`
     --label-badge-grey: #9e9e9e;
 
     /* states icon */
-    --state-icon-color: #44739e;
+    --state-icon-color: #45BDCF;
     /* an error state is anything that would be considered an error */
     /* --state-icon-error-color: #db4437; derived from error-color */
 
@@ -100,7 +100,7 @@ const mainStyles = css`
     --deep-purple-color: #6e41ab;
     --indigo-color: #3f51b5;
     --blue-color: #2196f3;
-    --light-blue-color: #03a9f4;
+    --light-blue-color: #45BDCF;
     --cyan-color: #00bcd4;
     --teal-color: #009688;
     --green-color: #4caf50;

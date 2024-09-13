@@ -22,6 +22,7 @@ import { LovelaceCardFeature, LovelaceCardFeatureEditor } from "../types";
 import { cardFeatureStyles } from "./common/card-feature-styles";
 import { filterModes } from "./common/filter-modes";
 import { ClimateHvacModesCardFeatureConfig } from "./types";
+import { filterModes } from "./common/filter-modes";
 
 export const supportsClimateHvacModesCardFeature = (stateObj: HassEntity) => {
   const domain = computeDomain(stateObj.entity_id);

@@ -1,5 +1,5 @@
 {
-  "description": "A frontend for Home Assistant",
+  "description": "A frontend for NRJHub",
   "repository": {
     "type": "git",
     "url": "https://github.com/home-assistant/frontend"
@@ -157,7 +157,7 @@
     "@babel/preset-typescript": "7.24.7",
     "@bundle-stats/plugin-webpack-filter": "4.15.1",
     "@koa/cors": "5.0.0",
-    "@lokalise/node-api": "12.7.0",
+    "@lokalise/node-api": "12.7.1",
     "@octokit/auth-oauth-device": "7.1.1",
     "@octokit/plugin-retry": "7.1.1",
     "@octokit/rest": "21.0.2",
@@ -185,8 +185,8 @@
     "@types/tar": "6.1.13",
     "@types/ua-parser-js": "0.7.39",
     "@types/webspeechapi": "0.0.29",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
+    "@typescript-eslint/eslint-plugin": "7.18.1",
+    "@typescript-eslint/parser": "7.18.1",
     "@web/dev-server": "0.1.38",
     "@web/dev-server-rollup": "0.4.1",
     "babel-loader": "9.1.3",

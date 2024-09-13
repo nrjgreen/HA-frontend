@@ -19,14 +19,15 @@ class HaConfigNavigation extends LitElement {
   @property({ attribute: false }) public pages!: PageNavigation[];
 
   protected render(): TemplateResult {
-    const pages = this.pages
+    let pages = this.pages
       .filter((page) =>
         page.path === "#external-app-configuration"
           ? this.hass.auth.external?.config.hasSettingsScreen
           : canShowPage(this.hass, page)
       )
       .map((page) => ({
-        ...page,
+        ...page
+        ,
         name:
           page.name ||
           this.hass.localize(
@@ -54,6 +55,7 @@ class HaConfigNavigation extends LitElement {
                 }
               `,
       }));
+    pages = pages.filter((page) => page.component !== "cloud");
     return html`
       <ha-navigation-list
         hasSecondary
