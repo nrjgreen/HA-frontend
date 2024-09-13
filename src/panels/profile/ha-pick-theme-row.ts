@@ -50,21 +50,6 @@ export class HaPickThemeRow extends LitElement {
         <span slot="heading"
           >${this.hass.localize("ui.panel.profile.themes.header")}</span
         >
-        <span slot="description">
-          ${!hasThemes
-            ? this.hass.localize("ui.panel.profile.themes.error_no_theme")
-            : ""}
-          <a
-            href=${documentationUrl(
-              this.hass,
-              "/integrations/frontend/#defining-themes"
-            )}
-            target="_blank"
-            rel="noreferrer"
-          >
-            ${this.hass.localize("ui.panel.profile.themes.link_promo")}
-          </a>
-        </span>
         <ha-select
           .label=${this.hass.localize("ui.panel.profile.themes.dropdown_label")}
           .disabled=${!hasThemes}
@@ -76,7 +61,7 @@ export class HaPickThemeRow extends LitElement {
             ${this.hass.localize("ui.panel.profile.themes.use_default")}
           </mwc-list-item>
           <mwc-list-item .value=${HOME_ASSISTANT_THEME}>
-            Home Assistant
+            NRJHub
           </mwc-list-item>
           ${this._themeNames.map(
             (theme) => html`

@@ -19,7 +19,7 @@ import type { HaSelect } from "./ha-select";
 
 const NONE = "__NONE_OPTION__";
 
-const NAME_MAP = { cloud: "Home Assistant Cloud" };
+const NAME_MAP = { cloud: "NRJHub Cloud" };
 
 @customElement("ha-stt-picker")
 export class HaSTTPicker extends LitElement {

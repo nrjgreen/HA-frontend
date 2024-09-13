@@ -81,19 +81,6 @@ export class AssistPref extends LitElement {
             referrerpolicy="no-referrer"
           />Assist
         </h1>
-        <div class="header-actions">
-          <a
-            href=${documentationUrl(this.hass, "/docs/assist/")}
-            target="_blank"
-            rel="noreferrer noopener"
-            class="icon-link"
-          >
-            <ha-icon-button
-              label="Learn how it works"
-              .path=${mdiHelpCircle}
-            ></ha-icon-button>
-          </a>
-        </div>
         <mwc-list>
           ${this._pipelines.map(
             (pipeline) => html`

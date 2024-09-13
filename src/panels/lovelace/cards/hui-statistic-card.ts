@@ -283,7 +283,7 @@ export class HuiStatisticCard extends LitElement implements LovelaceCard {
         }
 
         .icon {
-          color: var(--state-icon-color, #44739e);
+          color: var(--state-icon-color, #45BDCF);
           line-height: 40px;
         }
 

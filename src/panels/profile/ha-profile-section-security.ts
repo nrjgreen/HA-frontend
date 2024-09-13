@@ -6,7 +6,6 @@ import { RefreshToken } from "../../data/refresh_token";
 import { haStyle } from "../../resources/styles";
 import { HomeAssistant, Route } from "../../types";
 import "./ha-change-password-card";
-import "./ha-long-lived-access-tokens-card";
 import "./ha-mfa-modules-card";
 import "./ha-refresh-tokens-card";
 
@@ -63,12 +62,6 @@ class HaProfileSectionSecurity extends LitElement {
             .refreshTokens=${this._refreshTokens}
             @hass-refresh-tokens=${this._refreshRefreshTokens}
           ></ha-refresh-tokens-card>
-
-          <ha-long-lived-access-tokens-card
-            .hass=${this.hass}
-            .refreshTokens=${this._refreshTokens}
-            @hass-refresh-tokens=${this._refreshRefreshTokens}
-          ></ha-long-lived-access-tokens-card>
         </div>
       </hass-tabs-subpage>
     `;

@@ -122,18 +122,7 @@ class HUIRoot extends LitElement {
               "ui.panel.lovelace.menu.exit_edit_mode"
             )}
             @click=${this._editModeDisable}
-          ></mwc-button>
-          <a
-            href=${documentationUrl(this.hass, "/dashboards/")}
-            rel="noreferrer"
-            class="menu-link"
-            target="_blank"
-          >
-            <ha-icon-button
-              .label=${this.hass!.localize("ui.panel.lovelace.menu.help")}
-              .path=${mdiHelpCircle}
-            ></ha-icon-button>
-          </a>`
+          ></mwc-button>`
       );
     }
 
@@ -182,15 +171,15 @@ class HUIRoot extends LitElement {
         visible: !this._editMode,
         overflow: this.narrow,
       },
-      {
-        icon: mdiCommentProcessingOutline,
-        key: "ui.panel.lovelace.menu.assist",
-        buttonAction: this._showVoiceCommandDialog,
-        overflowAction: this._handleShowVoiceCommandDialog,
-        visible:
-          !this._editMode && this._conversation(this.hass.config.components),
-        overflow: this.narrow,
-      },
+      // {
+      //   icon: mdiCommentProcessingOutline,
+      //   key: "ui.panel.lovelace.menu.assist",
+      //   buttonAction: this._showVoiceCommandDialog,
+      //   overflowAction: this._handleShowVoiceCommandDialog,
+      //   visible:
+      //     !this._editMode && this._conversation(this.hass.config.components),
+      //   overflow: this.narrow,
+      // },
       {
         icon: mdiRefresh,
         key: "ui.common.refresh",

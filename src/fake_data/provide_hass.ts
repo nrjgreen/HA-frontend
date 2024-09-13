@@ -171,7 +171,7 @@ export const provideHass = (
   const noop = () => undefined;
 
   const hassObj: MockHomeAssistant = {
-    // Home Assistant properties
+    // NRJHub properties
     auth: {
       data: {
         hassUrl: "",

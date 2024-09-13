@@ -113,7 +113,7 @@ const tryDescribeTrigger = (
     );
   }
 
-  // Home Assistant Trigger
+  // NRJHub Trigger
   if (trigger.platform === "homeassistant" && trigger.event) {
     return hass.localize(
       trigger.event === "start"

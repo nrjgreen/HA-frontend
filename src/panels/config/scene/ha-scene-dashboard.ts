@@ -736,15 +736,6 @@ class HaSceneDashboard extends SubscribeMixin(LitElement) {
               <p>
                 ${this.hass.localize("ui.panel.config.scene.picker.empty_text")}
               </p>
-              <a
-                href=${documentationUrl(this.hass, "/docs/scene/editor/")}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ha-button>
-                  ${this.hass.localize("ui.panel.config.common.learn_more")}
-                </ha-button>
-              </a>
             </div>`
           : nothing}
         <a href="/config/scene/edit/new" slot="fab">

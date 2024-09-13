@@ -144,7 +144,7 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
       pages.push({
         component: "cloud",
         path: "/config/cloud",
-        name: "Home Assistant Cloud",
+        name: "NRJHub Cloud",
         info: cloudStatus,
         iconPath: mdiCloudLock,
         iconColor: "#3B808E",
@@ -203,11 +203,6 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
             .label=${this.hass.localize("ui.common.menu")}
             .path=${mdiDotsVertical}
           ></ha-icon-button>
-
-          <ha-list-item graphic="icon">
-            ${this.hass.localize("ui.panel.config.updates.check_updates")}
-            <ha-svg-icon slot="graphic" .path=${mdiUpdate}></ha-svg-icon>
-          </ha-list-item>
 
           <ha-list-item graphic="icon">
             ${this.hass.localize(
@@ -291,7 +286,6 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
               )}
             ></ha-config-navigation>
           </ha-card>
-          <ha-tip .hass=${this.hass}>${this._tip}</ha-tip>
         </ha-config-section>
       </ha-top-app-bar-fixed>
     `;
@@ -328,9 +322,6 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
   private async _handleMenuAction(ev: CustomEvent<ActionDetail>) {
     switch (ev.detail.index) {
       case 0:
-        checkForEntityUpdates(this, this.hass);
-        break;
-      case 1:
         showRestartDialog(this);
         break;
     }

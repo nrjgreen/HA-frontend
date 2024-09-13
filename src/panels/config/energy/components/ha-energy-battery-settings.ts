@@ -66,14 +66,6 @@ export class EnergyBatterySettings extends LitElement {
         <div class="card-content">
           <p>
             ${this.hass.localize("ui.panel.config.energy.battery.sub")}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href=${documentationUrl(this.hass, "/docs/energy/battery/")}
-              >${this.hass.localize(
-                "ui.panel.config.energy.battery.learn_more"
-              )}</a
-            >
           </p>
           ${batteryValidation.map(
             (result) => html`

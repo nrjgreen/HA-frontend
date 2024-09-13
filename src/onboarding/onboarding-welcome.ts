@@ -24,7 +24,6 @@ class OnboardingWelcome extends LitElement {
   protected render(): TemplateResult {
     return html`
       <h1>${this.localize("ui.panel.page-onboarding.welcome.header")}</h1>
-      <p>${this.localize("ui.panel.page-onboarding.intro")}</p>
 
       <ha-button unelevated @click=${this._start} class="start">
         ${this.localize("ui.panel.page-onboarding.welcome.start")}

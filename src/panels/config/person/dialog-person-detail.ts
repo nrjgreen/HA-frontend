@@ -203,31 +203,6 @@ class DialogPersonDetail extends LitElement {
                       "ui.panel.config.person.detail.no_device_tracker_available_intro"
                     )}
                   </p>
-                  <ul>
-                    <li>
-                      <a
-                        href=${documentationUrl(
-                          this.hass,
-                          "/integrations/#presence-detection"
-                        )}
-                        target="_blank"
-                        rel="noreferrer"
-                        >${this.hass!.localize(
-                          "ui.panel.config.person.detail.link_presence_detection_integrations"
-                        )}</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        @click=${this._closeDialog}
-                        href="/config/integrations"
-                      >
-                        ${this.hass!.localize(
-                          "ui.panel.config.person.detail.link_integrations_page"
-                        )}</a
-                      >
-                    </li>
-                  </ul>
                 `}
           </div>
         </div>
@@ -342,7 +317,7 @@ class DialogPersonDetail extends LitElement {
     );
     if (!credential) {
       showAlertDialog(this, {
-        title: "No Home Assistant credentials found.",
+        title: "No NRJHub credentials found.",
       });
       return;
     }

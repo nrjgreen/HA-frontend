@@ -1,6 +1,6 @@
 {
   "background_color": "#FFFFFF",
-  "description": "Show Home Assistant on your Chromecast or Google Assistant devices with a screen.",
+  "description": "Show NRJHub on your Chromecast or Google Assistant devices with a screen.",
   "dir": "ltr",
   "display": "standalone",
   "icons": [
@@ -11,8 +11,8 @@
     }
   ],
   "lang": "en-US",
-  "name": "Home Assistant Cast",
+  "name": "NRJHub Cast",
   "short_name": "HA Cast",
   "start_url": "/?homescreen=1",
-  "theme_color": "#03A9F4"
+  "theme_color": "#45BDCF"
 }

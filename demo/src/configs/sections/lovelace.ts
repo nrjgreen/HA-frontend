@@ -1,7 +1,7 @@
 import { DemoConfig } from "../types";
 
 export const demoLovelaceSections: DemoConfig["lovelace"] = () => ({
-  title: "Home Assistant Demo",
+  title: "NRJHub Demo",
   views: [
     {
       type: "sections",

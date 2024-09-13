@@ -295,10 +295,12 @@ class PanelTodo extends LitElement {
   }
 
   private async _addList(): Promise<void> {
+    var manifest = await fetchIntegrationManifest(this.hass, "local_todo");
+    console.log(manifest);
     showConfigFlowDialog(this, {
       startFlowHandler: "local_todo",
       showAdvanced: this.hass.userData?.showAdvanced,
-      manifest: await fetchIntegrationManifest(this.hass, "local_todo"),
+      manifest: manifest,
     });
   }
 

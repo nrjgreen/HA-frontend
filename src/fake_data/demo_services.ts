@@ -32,11 +32,11 @@ export const demoServices: HassServices = {
         },
       },
     },
-    stop: { description: "Stop the Home Assistant service.", fields: {} },
-    restart: { description: "Restart the Home Assistant service.", fields: {} },
+    stop: { description: "Stop the NRJHub service.", fields: {} },
+    restart: { description: "Restart the NRJHub service.", fields: {} },
     check_config: {
       description:
-        "Check the Home Assistant configuration files for errors. Errors will be displayed in the Home Assistant log.",
+        "Check the NRJHub configuration files for errors. Errors will be displayed in the NRJHub log.",
       fields: {},
     },
     update_entity: {

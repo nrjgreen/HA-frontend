@@ -127,16 +127,6 @@ class DialogImportBlueprint extends LitElement {
                     "ui.panel.config.blueprint.add.import_introduction"
                   )}
                 </p>
-                <a
-                  href="https://www.home-assistant.io/get-blueprints"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  ${this.hass.localize(
-                    "ui.panel.config.blueprint.add.community_forums"
-                  )}
-                  <ha-svg-icon .path=${mdiOpenInNew}></ha-svg-icon>
-                </a>
                 <ha-textfield
                   id="input"
                   .label=${this.hass.localize(

@@ -290,17 +290,6 @@ class HaBlueprintOverview extends LitElement {
           style="width: 100%; text-align: center;"
           role="cell"
         >
-          <a
-            href="https://www.home-assistant.io/get-blueprints"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <ha-button
-              >${this.hass.localize(
-                "ui.panel.config.blueprint.overview.discover_more"
-              )}</ha-button
-            >
-          </a>
         </div>`}
         .initialGroupColumn=${this._activeGrouping}
         .initialCollapsedGroups=${this._activeCollapsed}
@@ -334,20 +323,6 @@ class HaBlueprintOverview extends LitElement {
       title: this.hass.localize("ui.panel.config.blueprint.caption"),
       text: html`
         ${this.hass.localize("ui.panel.config.blueprint.overview.introduction")}
-        <p>
-          <a
-            href=${documentationUrl(
-              this.hass,
-              "/docs/automation/using_blueprints/"
-            )}
-            target="_blank"
-            rel="noreferrer"
-          >
-            ${this.hass.localize(
-              "ui.panel.config.blueprint.overview.learn_more"
-            )}
-          </a>
-        </p>
       `,
     });
   }

@@ -20,7 +20,7 @@ import type { HaSelect } from "./ha-select";
 const NONE = "__NONE_OPTION__";
 
 const NAME_MAP = {
-  cloud: "Home Assistant Cloud",
+  cloud: "NRJHub Cloud",
   google_translate: "Google Translate",
 };
 
@@ -68,7 +68,7 @@ export class HaTTSPicker extends LitElement {
               ${this.hass!.localize("ui.components.tts-picker.none")}
             </ha-list-item>`
           : nothing}
-        ${this._engines.map((engine) => {
+        ${this._engines.filter((engine) => engine.engine_id !== "Cloud").map((engine) => {
           let label = engine.engine_id;
           if (engine.engine_id.includes(".")) {
             const stateObj = this.hass!.states[engine.engine_id];
@@ -76,6 +76,7 @@ export class HaTTSPicker extends LitElement {
           } else if (engine.engine_id in NAME_MAP) {
             label = NAME_MAP[engine.engine_id];
           }
+          console.log("Engine: " + engine.engine_id);
           return html`<ha-list-item
             .value=${engine.engine_id}
             .disabled=${engine.supported_languages?.length === 0}

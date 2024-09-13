@@ -52,9 +52,9 @@ declare global {
 }
 
 const SUPERVISOR_UPDATE_NAMES = {
-  core: "Home Assistant Core",
-  os: "Home Assistant Operating System",
-  supervisor: "Home Assistant Supervisor",
+  core: "NRJHub Core",
+  os: "NRJHub Operating System",
+  supervisor: "NRJHub Supervisor",
 };
 
 type updateType = "os" | "supervisor" | "core" | "addon";

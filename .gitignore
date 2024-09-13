@@ -5,7 +5,7 @@
 build/
 dist/
 /hass_frontend/
-/translations/
+# /translations/
 
 # yarn
 .yarn/*
@@ -45,7 +45,7 @@ src/cast/dev_const.ts
 # asdf
 .tool-versions
 
-# Home Assistant config
+# NRJHub config
 /config/
 
 # Jetbrains

@@ -241,24 +241,7 @@ class DataEntryFlowDialog extends LitElement {
                     ].includes(this._step?.type as any) &&
                       this._params.manifest?.is_built_in) ||
                     this._params.manifest?.documentation
-                      ? html`
-                          <a
-                            href=${this._params.manifest.is_built_in
-                              ? documentationUrl(
-                                  this.hass,
-                                  `/integrations/${this._params.manifest.domain}`
-                                )
-                              : this._params?.manifest?.documentation}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                          >
-                            <ha-icon-button
-                              .label=${this.hass.localize("ui.common.help")}
-                              .path=${mdiHelpCircle}
-                            >
-                            </ha-icon-button
-                          ></a>
-                        `
+                      ? html``
                       : ""}
                     <ha-icon-button
                       .label=${this.hass.localize(

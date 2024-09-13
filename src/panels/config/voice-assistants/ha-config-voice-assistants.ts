@@ -16,11 +16,6 @@ import { HomeAssistant } from "../../../types";
 
 export const voiceAssistantTabs = [
   {
-    path: "/config/voice-assistants/assistants",
-    translationKey: "ui.panel.config.voice_assistants.assistants.caption",
-    iconPath: mdiMicrophone,
-  },
-  {
     path: "/config/voice-assistants/expose",
     translationKey: "ui.panel.config.voice_assistants.expose.caption",
     iconPath: mdiDevices,
@@ -63,9 +58,8 @@ class HaConfigVoiceAssistants extends HassRouterPage {
     defaultPage: "assistants",
     routes: {
       assistants: {
-        tag: "ha-config-voice-assistants-assistants",
-        load: () => import("./ha-config-voice-assistants-assistants"),
-        cache: true,
+        tag: "ha-config-voice-assistants-expose",
+        load: () => import("./ha-config-voice-assistants-expose"),
       },
       expose: {
         tag: "ha-config-voice-assistants-expose",
