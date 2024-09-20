@@ -83,7 +83,7 @@ export class HaTTSPicker extends LitElement {
               ${this.hass!.localize("ui.components.tts-picker.none")}
             </ha-list-item>`
           : nothing}
-        ${this._engines.filter((engine) => engine.engine_id !== "Cloud").map((engine) => {
+        ${this._engines.filter((engine) => engine.name !== "NRJHub Cloud").map((engine) => {
           if (engine.deprecated && engine.engine_id !== value) {
             return nothing;
           }
