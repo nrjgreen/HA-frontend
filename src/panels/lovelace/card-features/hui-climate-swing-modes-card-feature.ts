@@ -17,7 +17,6 @@ import { LovelaceCardFeature, LovelaceCardFeatureEditor } from "../types";
 import { cardFeatureStyles } from "./common/card-feature-styles";
 import { filterModes } from "./common/filter-modes";
 import { ClimateSwingModesCardFeatureConfig } from "./types";
-import { filterModes } from "./common/filter-modes";
 
 export const supportsClimateSwingModesCardFeature = (stateObj: HassEntity) => {
   const domain = computeDomain(stateObj.entity_id);
