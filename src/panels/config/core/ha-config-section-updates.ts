@@ -62,13 +62,6 @@ class HaConfigSectionUpdates extends LitElement {
         .header=${this.hass.localize("ui.panel.config.updates.caption")}
       >
         <div slot="toolbar-icon">
-          <ha-icon-button
-            .label=${this.hass.localize(
-              "ui.panel.config.updates.check_updates"
-            )}
-            .path=${mdiRefresh}
-            @click=${this._checkUpdates}
-          ></ha-icon-button>
           <ha-button-menu multi>
             <ha-icon-button
               slot="trigger"

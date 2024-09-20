@@ -156,17 +156,8 @@ class HaConfigInfo extends LitElement {
               </li>
             </ul>
           </ha-card>
-          <ha-card outlined class="ohf">
-            <div>Proud part of</div>
-            <a
-              href="https://www.openhomefoundation.org"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/static/icons/ohf.svg" alt="Open Home Foundation" />
-            </a>
-          </ha-card>
 
+          <!-- 
           <ha-card outlined class="pages">
             <mwc-list>
               ${PAGES.map(
@@ -208,6 +199,7 @@ class HaConfigInfo extends LitElement {
                 `
               : nothing}
           </ha-card>
+          -->
         </div>
       </hass-subpage>
     `;
