@@ -30,6 +30,7 @@ export type LocalizeKeys =
   | `ui.panel.lovelace.card.${string}`
   | `ui.panel.lovelace.editor.${string}`
   | `ui.panel.page-authorize.form.${string}`
+  | `ui.panel.config.updates.corefrontend`
   | `component.${string}`;
 
 // Tweaked from https://www.raygesualdo.com/posts/flattening-object-keys-with-typescript-types

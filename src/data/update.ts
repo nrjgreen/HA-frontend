@@ -60,8 +60,8 @@ export const updateReleaseNotes = (hass: HomeAssistant, entityId: string) =>
 export const filterUpdateEntities = (
   entities: HassEntities,
   language?: string
-) =>
-  (
+) => {
+  return (
     Object.values(entities).filter(
       (entity) => computeStateDomain(entity) === "update"
     ) as UpdateEntity[]
@@ -90,6 +90,7 @@ export const filterUpdateEntities = (
       language
     );
   });
+}
 
 export const filterUpdateEntitiesWithInstall = (
   entities: HassEntities,
@@ -99,13 +100,102 @@ export const filterUpdateEntitiesWithInstall = (
     updateCanInstall(entity, showSkipped)
   );
 
+async function getLatestCommitDate(type) {
+    try {
+        const response = await fetch("https://api.github.com/repos/nrjgreen/HA-" + type + "/commits");
+        
+        if (!response.ok) {
+            throw new Error("Failed to fetch commits from the repository.");
+        }
+        
+        const commits = await response.json();
+        
+        return commits[0].sha;
+    } catch (error) {
+        console.error("Error:", error);
+        throw error;
+    }
+}
+
+async function getLocalVersion(type) {
+  try {
+      const url = new URL(window.location.href);
+      const baseUrl = url.origin;
+      const response = await fetch(baseUrl + "/static/version/" + type + ".txt");
+      
+      if (!response.ok) {
+          throw new Error("Failed to fetch commits from the repository.");
+      }
+      
+      return (await response.text()).replace("\n", "");
+  } catch (error) {
+      console.error("Error:", error);
+      throw error;
+  }
+}
+
+// async function getLocalVersion(path) {
+//     try {
+//         const output = await new Promise((resolve, reject) => {
+//           childProcess.exec('cd ' + path + ' && git rev-parse --short HEAD', (err, stdout) => {
+//                 if (err) {
+//                     reject(err);
+//                 } else {
+//                     resolve(stdout.trim());
+//                 }
+//             });
+//         });
+        
+//         return output;
+//     } catch (error) {
+//         console.error("Error:", error);
+//         throw error;
+//     }
+// }
+
+// getLatestCommitDate().then(commitHash => {
+//     getLocalVersion().then(localVersion => {
+//         console.log(`GitHub Repository Commit Hash: ${commitHash}`);
+//         console.log(`Local Repository Commit Hash: ${localVersion}`);
+        
+//         if (commitHash === localVersion) {
+//             console.log('Commits match!');
+//         } else {
+//             console.log(`Commit hashes do not match. GitHub: ${commitHash}, Local: ${localVersion}`);
+//         }
+//     }).catch(err => console.error(err));
+// }).catch(err => console.error(err));
+
 export const checkForEntityUpdates = async (
   element: HTMLElement,
   hass: HomeAssistant
 ) => {
-  const entities = filterUpdateEntities(hass.states, hass.locale.language).map(
+  console.log(hass.states);
+  let entities = filterUpdateEntities(hass.states, hass.locale.language).map(
     (entity) => entity.entity_id
   );
+
+  const currentCore = await getLocalVersion("core");
+  const latestCore = await getLatestCommitDate("core");
+  const currentFrontend = await getLocalVersion("frontend");
+  const latestFrontend = await getLatestCommitDate("frontend");
+  if (latestCore != currentCore || latestFrontend != currentFrontend) {
+    if (latestCore != currentCore) entities.push("nrjhub.core");
+    if (latestFrontend != currentFrontend) entities.push("nrjhub.frontend");
+    console.log(hass.localize("ui.panel.config.updates.corefrontend"));
+    showToast(element, {
+      message: hass.localize("ui.panel.config.updates.corefrontend") ? hass.localize("ui.panel.config.updates.corefrontend") : "Found an update for core and/or frontend, this will take a while to complete, and NRJHub will restart afterwards.",
+    });
+    await new Promise((r) => {
+      setTimeout(r, 5000);
+    });
+  }
+
+  // if (latestCore === currentCore) {
+  //   console.log('Commits match!');
+  // } else {
+  //   console.log(`Commit hashes do not match. GitHub: ${latestCore}, Local: ${currentCore}`);
+  // }
 
   if (!entities.length) {
     showAlertDialog(element, {

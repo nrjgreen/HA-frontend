@@ -5,6 +5,7 @@ import {
   mdiMagnify,
   mdiPower,
   mdiRefresh,
+  mdiUpdate
 } from "@mdi/js";
 import type { UnsubscribeFunc } from "home-assistant-js-websocket";
 import {
@@ -208,6 +209,11 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
           ></ha-icon-button>
 
           <ha-list-item graphic="icon">
+            ${this.hass.localize("ui.panel.config.updates.check_updates")}
+            <ha-svg-icon slot="graphic" .path=${mdiUpdate}></ha-svg-icon>
+          </ha-list-item>
+
+          <ha-list-item graphic="icon">
             ${this.hass.localize(
               "ui.panel.config.system_dashboard.restart_homeassistant"
             )}
@@ -330,6 +336,9 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
   private async _handleMenuAction(ev: CustomEvent<ActionDetail>) {
     switch (ev.detail.index) {
       case 0:
+        checkForEntityUpdates(this, this.hass);
+        break;
+      case 1:
         showRestartDialog(this);
         break;
     }

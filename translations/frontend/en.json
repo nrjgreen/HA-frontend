@@ -5155,6 +5155,7 @@
                     "tip": "Tip!"
                 },
                 "updates": {
+                    "corefrontend": "Found an update for core and/or frontend, this will take a while to complete, and NRJHub will restart afterwards.",
                     "caption": "Updates",
                     "check_updates": "Check for updates",
                     "checking_updates": "Checking for updates...",

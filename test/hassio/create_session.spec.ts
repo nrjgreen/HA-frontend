@@ -7,6 +7,7 @@ describe("Create hassio session", function () {
     callApi: async function () {
       return { data: { session: "fhdsu73rh3io4h8f3irhjel8ousafehf8f3yh" } };
     },
+    test: "abc",
   };
 
   it("Test create session without HTTPS", async function () {

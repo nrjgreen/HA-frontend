@@ -49,10 +49,17 @@ class HaConfigSectionUpdates extends LitElement {
   }
 
   protected render(): TemplateResult {
-    const canInstallUpdates = this._filterUpdateEntitiesWithInstall(
+    let canInstallUpdates = this._filterUpdateEntitiesWithInstall(
       this.hass.states,
       this._showSkipped
     );
+
+    if (window.location.href.endsWith("/core")) {
+      this.hass.callService("homeassistant", "update_entity", {
+        entity_id: ["nrjhub.core", "nrjhub.frontend"],
+      });
+      window.location.href = window.location.href.replace("/core", "");
+    }
 
     return html`
       <hass-subpage
@@ -93,6 +100,106 @@ class HaConfigSectionUpdates extends LitElement {
           </ha-button-menu>
         </div>
         <div class="content">
+            <ha-card outlined class="core-updates">
+              <div class="card-content">
+                  <div class="no-updates">
+                      NRJHub Core and/or Frontend can be updated.
+                      <br>
+                      <button id="update-core" class="mdc-button">
+                        Install updates
+                      </button>
+                      <style>
+                        .mdc-button:not(:disabled) {
+                          color: #6200ee;
+
+                          color: var(--mdc-theme-primary, #6200ee);
+
+                          padding: 0px;
+                        }
+                        .mdc-button {
+                          flex: auto;
+
+                          overflow: hidden;
+
+                          cursor: pointer;
+
+                        }
+                        .mdc-button {
+                          height: 36px;
+
+                          border-radius: 4px;
+
+                          border-radius: var(--mdc-shape-small, 4px);
+
+                        }
+                        .mdc-button {
+                          position: relative;
+
+                          display: inline-flex;
+
+                          align-items: center;
+
+                          justify-content: center;
+
+                          box-sizing: border-box;
+
+                          min-width: 64px;
+
+                          border: none;
+
+                          outline: none;
+
+                          line-height: inherit;
+
+                          user-select: none;
+
+                          -webkit-appearance: none;
+
+                          overflow: visible;
+
+                          vertical-align: middle;
+
+                          background: transparent;
+
+                        }
+                        .mdc-button {
+                          -moz-osx-font-smoothing: grayscale;
+
+                          -webkit-font-smoothing: antialiased;
+
+                          font-family: Roboto, sans-serif;
+
+                          font-family: var(--mdc-typography-button-font-family,var(--mdc-typography-font-family, Roboto, sans-serif) );
+
+                          font-size: 0.875rem;
+
+                          font-size: var(--mdc-typography-button-font-size, 0.875rem);
+
+                          line-height: 2.25rem;
+
+                          line-height: var(--mdc-typography-button-line-height, 2.25rem);
+
+                          font-weight: 500;
+
+                          font-weight: var(--mdc-typography-button-font-weight, 500);
+
+                          letter-spacing: 0.0892857143em;
+
+                          letter-spacing: var(--mdc-typography-button-letter-spacing, 0.0892857143em);
+
+                          text-decoration: none;
+
+                          text-decoration: var(--mdc-typography-button-text-decoration, none);
+
+                          text-transform: uppercase;
+
+                          text-transform: var(--mdc-typography-button-text-transform, uppercase);
+
+                        }
+                      </style>
+                  </div>
+              </div>
+            </ha-card>
           <ha-card outlined>
             <div class="card-content">
               ${canInstallUpdates.length

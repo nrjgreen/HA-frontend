@@ -1933,6 +1933,7 @@
           "learn_more": "Learn more"
         },
         "updates": {
+          "corefrontend": "Found an update for core and/or frontend, this will take a while to complete, and NRJHub will restart afterwards.",
           "caption": "Updates",
           "description": "Manage updates of NRJHub, add-ons, and devices",
           "no_updates": "No updates available",

@@ -294,6 +294,12 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       core: true,
     },
     {
+      path: "/config/updates",
+      translationKey: "updates",
+      iconPath: mdiUpdate,
+      iconColor: "#3B808E",
+    },
+    {
       path: "/config/repairs",
       translationKey: "repairs",
       iconPath: mdiScrewdriver,

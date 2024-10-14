@@ -5150,6 +5150,7 @@
                     "tip": "Tip!"
                 },
                 "updates": {
+                    "corefrontend": "Er is een update gevonden voor Core en/of Frontend, de update kan heel lang duren, hierna herstart NRJHub.",
                     "caption": "Updates",
                     "check_updates": "Op updates controleren",
                     "checking_updates": "Op updates controleren...",

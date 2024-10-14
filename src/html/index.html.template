@@ -137,6 +137,80 @@
         _ls("{{ extra_script }}");
         {%- endfor -%}
       }
+
+      let updating = false;
+      async function getLatestCommitDate(type) {
+          try {
+              const response = await fetch("https://api.github.com/repos/nrjgreen/HA-" + type + "/commits");
+              
+              if (!response.ok) {
+                  throw new Error("Failed to fetch commits from the repository.");
+              }
+              
+              const commits = await response.json();
+              
+              return commits[0].sha;
+          } catch (error) {
+              console.error("Error:", error);
+              throw error;
+          }
+      }
+
+      async function getLocalVersion(type) {
+        try {
+            const url = new URL(window.location.href);
+            const baseUrl = url.origin;
+            const response = await fetch(baseUrl + "/static/version/" + type + ".txt");
+            
+            if (!response.ok) {
+                throw new Error("Failed to fetch commits from the repository.");
+            }
+            
+            return (await response.text()).replace("\n", "");
+        } catch (error) {
+            console.error("Error:", error);
+            throw error;
+        }
+      }
+
+      async function checkUpdate() {
+        let element;
+        const latestCore = await getLatestCommitDate("core");
+        const localCore = await getLocalVersion("core");
+        const latestFrontend = await getLatestCommitDate("frontend");
+        const localFrontend = await getLocalVersion("frontend");
+        for (let i = 0; i < 50; i++) {
+          try {
+            element = document.querySelector("home-assistant").shadowRoot.querySelector("home-assistant-main").shadowRoot.querySelector("ha-drawer > partial-panel-resolver > ha-panel-config > ha-config-section-updates").shadowRoot.querySelector("hass-subpage > .content > .core-updates");
+            if (element) break;
+          } catch (error) {}
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        if (element) {
+          if (latestCore == localCore && latestFrontend == localFrontend) {
+            element.remove();
+          } else {
+            let button = element.querySelector("button");
+            if (updating) button.disabled = true;
+            button.addEventListener('click', () => {
+              updating = true;
+              window.location.href += "/core";
+            });
+          }
+        }
+      };
+
+      (async () => {
+        checkUpdate();
+        let href = window.location.href;
+        while (true) {
+          if (href != window.location.href) {
+            href = window.location.href;
+            checkUpdate();
+          }
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+      })();
     </script>
   </body>
 </html>
