@@ -175,10 +175,6 @@
 
       async function checkUpdate() {
         let element;
-        const latestCore = await getLatestCommitDate("core");
-        const localCore = await getLocalVersion("core");
-        const latestFrontend = await getLatestCommitDate("frontend");
-        const localFrontend = await getLocalVersion("frontend");
         for (let i = 0; i < 50; i++) {
           try {
             element = document.querySelector("home-assistant").shadowRoot.querySelector("home-assistant-main").shadowRoot.querySelector("ha-drawer > partial-panel-resolver > ha-panel-config > ha-config-section-updates").shadowRoot.querySelector("hass-subpage > .content > .core-updates");
@@ -186,6 +182,10 @@
           } catch (error) {}
           await new Promise(resolve => setTimeout(resolve, 100));
         }
+        const latestCore = await getLatestCommitDate("core");
+        const localCore = await getLocalVersion("core");
+        const latestFrontend = await getLatestCommitDate("frontend");
+        const localFrontend = await getLocalVersion("frontend");
         if (element) {
           if (latestCore == localCore && latestFrontend == localFrontend) {
             element.remove();
