@@ -201,12 +201,11 @@
       };
 
       (async () => {
-        checkUpdate();
         let href = window.location.href;
         while (true) {
           if (href != window.location.href) {
             href = window.location.href;
-            checkUpdate();
+            if (href.endsWith("/config/updates")) checkUpdate();
           }
           await new Promise(resolve => setTimeout(resolve, 100));
         }
