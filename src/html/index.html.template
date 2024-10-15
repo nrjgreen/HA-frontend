@@ -203,6 +203,7 @@
 
       (async () => {
         let href = window.location.href;
+        if (href.endsWith("/config/updates")) checkUpdate();
         while (true) {
           if (href != window.location.href) {
             href = window.location.href;
