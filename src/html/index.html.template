@@ -190,6 +190,7 @@
           if (latestCore == localCore && latestFrontend == localFrontend) {
             element.remove();
           } else {
+            element.style.display = "block";
             let button = element.querySelector("button");
             if (updating) button.disabled = true;
             button.addEventListener('click', () => {

@@ -102,7 +102,7 @@ class HaConfigSectionUpdates extends LitElement {
         <div class="content">
             <ha-card outlined class="core-updates">
               <div class="card-content">
-                  <div class="no-updates">
+                  <div class="no-updates" style="display: none;">
                       NRJHub Core and/or Frontend can be updated.
                       <br>
                       <button id="update-core" class="mdc-button">
